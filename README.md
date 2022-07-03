@@ -1,4 +1,4 @@
-# Chilean Supermarket Web Scraping/Supermercados chilenes Web Scraping 🚀
+# Chilean Supermarket Web Scraping/Supermercados chilenos Web Scraping 🚀
 
 This repository has the purpose of extract every product of the principal supermarkets in Chile. The supermarkets in this code are:
 
