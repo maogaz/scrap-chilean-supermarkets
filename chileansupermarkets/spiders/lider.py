@@ -2,7 +2,7 @@ from datetime import date
 import scrapy
 
 
-def return_lider_product_link(params: str) -> str:
+def return_lider_product_url(params: str) -> str:
     return f"https://www.lider.cl/supermercado/product{params}"
 
 
@@ -31,15 +31,15 @@ class Lider(scrapy.Spider):
                 ).get()
                 yield {
                     "name": product_name,
-                    "price": price.css("b::text").get(),
-                    "link": return_lider_product_link(
-                        product.css("a.product-link::attr(href)").get()
-                    ),
                     "sku": clean_id(
                         product.css("span.reference-code::text").get()
                     ),
-                    "extraction_date": str(date.today()),
+                    "url": return_lider_product_url(
+                        product.css("a.product-link::attr(href)").get()
+                    ),
+                    "price": price.css("b::text").get(),
                     "brand": brand,
+                    "date": str(date.today()),
                 }
 
         pagination_list = response.css("div.box-pagination.clearfix.hidden-xs")

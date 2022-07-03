@@ -44,4 +44,5 @@ class Lysto(scrapy.Spider):
             "url": url,
             "price": clean_price(response.css("span.price.selling::text").get().strip()),
             "brand": response.css("span.text-break::text").getall()[1].strip(),
+            "date": str(date.today()),
         }
